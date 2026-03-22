@@ -1,5 +1,5 @@
 public class SynchronisedSingleton {
-    private static SynchronisedSingleton Instance;
+    private volatile static SynchronisedSingleton Instance;
     private SynchronisedSingleton(){}
     public static SynchronisedSingleton getInstance(){
         if(Instance == null){
@@ -15,3 +15,5 @@ public class SynchronisedSingleton {
 
 
 //Double checked locking
+// A volatile variable is always read from and written to main memory, not from a thread’s local cache.
+// volatile keyword ensures that multiple threads handle the unique instance variable correctly when it is being initialized to the Singleton instance.
